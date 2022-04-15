@@ -1,6 +1,6 @@
 import { DataSource } from "typeorm";
 
-const AppData = new DataSource({
+export const AppData = new DataSource({
 
     "name": "default",
     "type": "mysql",
@@ -22,6 +22,3 @@ AppData.initialize()
     .catch(() => {
         console.error("Error during Data Source initialization")
     })
-
-
-module.exports = AppData;
