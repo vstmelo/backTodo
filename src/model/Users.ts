@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity("users", { schema: "back_react" })
 export class Users {
@@ -20,4 +20,7 @@ export class Users {
 
   @PrimaryGeneratedColumn({ type: "int", name: "id" })
   id: number;
+  
+  @UpdateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
+  public updated_at: Date;
 }
