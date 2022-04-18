@@ -2,6 +2,9 @@ import { Column, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeor
 
 @Entity("users", { schema: "back_react" })
 export class Users {
+  @PrimaryGeneratedColumn({ type: "int", name: "id" })
+  id: number;
+  
   @Column("varchar", { name: "username", length: 16 })
   username: string;
 
@@ -17,10 +20,7 @@ export class Users {
     default: () => "CURRENT_TIMESTAMP",
   })
   createTime: Date | null;
-
-  @PrimaryGeneratedColumn({ type: "int", name: "id" })
-  id: number;
   
   @UpdateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
-  public updated_at: Date;
+  public updated_ate: Date;
 }
